@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+        background-color: aquamarine;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        background-color: bisque;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+      }
+      input {
+        height: 30px;
+        border: 2px solid rgb(58, 2, 13);
+        border-radius: 5px;
+        margin: 10px;
+        padding: 5px;
+      }
+
+      select {
+        height: 25px;
+        width: 100px;
+        padding: 5px;
+        margin: 10px;
+      }
+      button {
+        height: 30px;
+        font-size: large;
+        border: 2px solid;
+        background-color: rgb(174, 4, 92);
+        margin: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Temperature Converter</h1>
+      <input type="number" placeholder="enter temperature" id="InputBox" />
+
+      <select id="UNIT">
+        <option id="celcius" value="celcius">celcius</option>
+        <option id="fahrenheit" value="fahrenheit">fahrenheit</option>
+      </select>
+
+      <button id="btn">convert</button>
+      <p id="result">RESULT :</p>
+    </div>
+
+    <script>
+      btn.addEventListener("click", function () {
+        const UNIT = document.getElementById("UNIT").value;
+        const InputBox = document.getElementById("InputBox");
+        const result = document.getElementById("result");
+        const btn = document.getElementById("btn");
+
+        if (UNIT === "celcius") {
+          let fah = (InputBox.value * 9) / 5 + 32;
+          result.textContent = `${InputBox.value}°  Celcius is ${fah.toFixed(
+            2
+          )}°  Fahrenheit`;
+          UNIT = "fahrenheit";
+        } else {
+          let cel = ((InputBox.value - 32) * 5) / 9;
+          result.textContent = `${InputBox.value}°  Fahrenheit is ${cel.toFixed(
+            2
+          )}°  Celcius`;
+          UNIT = "celcius";
+        }
+      });
+    </script>
+  </body>
+</html>
+
